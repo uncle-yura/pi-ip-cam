@@ -43,7 +43,7 @@ def convert_to_number(data):
 
 
 def read_sensor(bus, addr):
-    data = bus.read_i2c_block_data(addr,ONE_TIME_HIGH_RES_MODE_1)
+    data = bus.read_i2c_block_data(addr, ONE_TIME_HIGH_RES_MODE_1)
     return convert_to_number(data)
 
 
@@ -62,7 +62,9 @@ def main():
     while True:
         check_mediamtx_running()
         light_level=read_sensor(bus, SENSOR_ADDR)
-        print(f"Light level: {format(light_level,'.2f')} lx, threshold: {threshold}")
+        
+        if len(sys.argv) > 2:
+            print(f"Light level: {format(light_level,'.2f')} lx, threshold: {threshold}")
 
         if light_level > threshold:
             GPIO.output(GPIO_IR_CUT, True)
