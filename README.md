@@ -342,13 +342,25 @@ sudo systemctl start mediamtx
 Edit:
 
 ```bash
+sudo nano /boot/firmware/config.txt
+```
+
+Add:
+
+```text
+dtparam=watchdog=on
+```
+
+Edit:
+
+```bash
 sudo nano /etc/systemd/system.conf
 ```
 
 Set:
 
 ```text
-RuntimeWatchdogSec=15
+RuntimeWatchdogSec=10
 RebootWatchdogSec=2min
 ```
 
@@ -363,7 +375,7 @@ Set:
 
 ```text
 watchdog-device = /dev/watchdog
-watchdog-timeout = 15
+watchdog-timeout = 10
 interface = eth0
 min-memory = 1
 ```
