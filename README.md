@@ -377,7 +377,8 @@ Set:
 watchdog-device = /dev/watchdog
 watchdog-timeout = 10
 interface = eth0
-min-memory = 1
+min-memory = 30000
+allocatable-memory = 6000
 ```
 
 Enable:
@@ -402,6 +403,16 @@ Add:
 ```
 
 ---
+
+## Links:
+
+https://www.raspberrypi.com/products/raspberry-pi-zero-w/
+
+https://www.waveshare.com/wiki/RPi_IR-CUT_Camera
+
+https://github.com/bluenviron/mediamtx
+
+--- 
 
 ## ✅ Done!
 
